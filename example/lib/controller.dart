@@ -10,7 +10,7 @@ import 'package:flutter_virtual_piano/flutter_virtual_piano.dart';
 class ControllerPage extends StatelessWidget {
   final MidiDevice device;
 
-  const ControllerPage(this.device, {Key? key}) : super(key: key);
+  const ControllerPage(this.device, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ControllerPage extends StatelessWidget {
 class MidiControls extends StatefulWidget {
   final MidiDevice device;
 
-  const MidiControls(this.device, {Key? key}) : super(key: key);
+  const MidiControls(this.device, {super.key});
 
   @override
   MidiControlsState createState() {
@@ -56,8 +56,7 @@ class MidiControlsState extends State<MidiControls> {
     }
     _rxSubscription = _midiCommand.onMidiDataReceived?.listen((packet) {
       var data = packet.data;
-      var timestamp = packet.timestamp;
-      var device = packet.device;
+          
       // if (kDebugMode) {
       //   print("data $data @ time $timestamp from device ${device.name}:${device.id}");
       // }
@@ -247,7 +246,7 @@ class MidiControlsState extends State<MidiControls> {
   }
 
   void _sendSysex(int length) {
-    print("Send $length SysEx bytes");
+    // print("Send $length SysEx bytes");
     final data = Uint8List(length);
     data[0] = 0xF0;
     for (int i = 0; i < length -1; i++) {
@@ -265,7 +264,7 @@ class SteppedSelector extends StatelessWidget {
   final int value;
   final Function(int) callback;
 
-  const SteppedSelector(this.label, this.value, this.minValue, this.maxValue, this.callback, {Key? key}) : super(key: key);
+  const SteppedSelector(this.label, this.value, this.minValue, this.maxValue, this.callback, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -300,7 +299,7 @@ class SlidingSelector extends StatelessWidget {
   final int value;
   final Function(int) callback;
 
-  const SlidingSelector(this.label, this.value, this.minValue, this.maxValue, this.callback, {Key? key}) : super(key: key);
+  const SlidingSelector(this.label, this.value, this.minValue, this.maxValue, this.callback, {super.key});
 
   @override
   Widget build(BuildContext context) {

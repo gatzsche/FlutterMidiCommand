@@ -56,7 +56,7 @@ class MidiRecorder {
       await File(outputFile).writeAsString(csv);
     }
 
-    print("recording exported");
+    // print("recording exported");
   }
 
   clearRecording() {

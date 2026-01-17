@@ -10,7 +10,7 @@ import 'controller.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   MyAppState createState() => MyAppState();
@@ -151,6 +151,8 @@ class MyAppState extends State<MyApp> {
                     await _midiCommand
                         .startBluetoothCentral()
                         .catchError((err) {
+                          
+                      // ignore: use_build_context_synchronously
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(err),
                       ));
@@ -272,6 +274,7 @@ class MyAppState extends State<MyApp> {
                               print("device connected async");
                             }
                           }).catchError((err) {
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text(
                                     "Error: ${(err as PlatformException?)?.message}")));

@@ -117,7 +117,7 @@ class SysExMessage extends MidiMessage {
   }
 
   Int8List _bytesForValue(int value) {
-    print("bytes for value $value");
+    // print("bytes for value $value");
     var bytes = Int8List(5);
 
     int absValue = value.abs();
